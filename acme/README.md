@@ -157,17 +157,18 @@ spec:
     #   Production: https://acme-v02.api.letsencrypt.org/directory
     #   Staging   : https://acme-staging-v02.api.letsencrypt.org/directory
     #server: https://acme-staging-v02.api.letsencrypt.org/directory
-    server: https://acme-v02.api.letsencrypt.org/directory          👈👈👈
+    server: https://acme-v02.api.letsencrypt.org/directory           👈👈👈
 
     privateKeySecretRef:
       name: awx-issuer-account-key
 
     solvers:
-    - dns01:
-        cloudflare:
-          apiTokenSecretRef:
-            name: cloudflare-api-token-secret
-            key: api-token
+      - dns01:
+          cloudflare:
+            email: your-cloudflare-account-email@example.com          👈👈👈
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
 ```
 
 To store Client Secret for the Service Principal to Secret resource in Kubernetes, modify `acme/kustomization.yaml`.
@@ -185,7 +186,7 @@ secretGenerator:
   - name: cloudflare-api-token-secret
     type: Opaque
     literals:
-      - api-token=your-cloudflare-api-token          👈👈👈
+      - api-token=your_cloudflare_api_token          👈👈👈
 
 resources:
   - issuer.yaml
