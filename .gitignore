@@ -1,3 +1,4 @@
 debug
 *.crt
 *.key
+/nosync/*
