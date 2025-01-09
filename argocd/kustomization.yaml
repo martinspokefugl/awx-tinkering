@@ -7,15 +7,15 @@ generatorOptions:
   disableNameSuffixHash: true
 
 secretGenerator:
-  # - name: argocd-tls
-  #   type: kubernetes.io/tls
-  #   files:
-  #    - tls.crt
-  #    - tls.key
-  # - name: argocd-secret
-  #  type: Opaque
-  #  behavior: merge
-  #  literals:
+  - name: argocd-tls
+    type: kubernetes.io/tls
+    files:
+      - tls.crt
+      - tls.key
+  #  - name: argocd-secret
+  #    type: Opaque
+  #    behavior: merge
+  #    literals:
   #    # argocd account bcrypt --password ArgoCD123!
   #    - admin.password=$2a$10$xonpIrp0Q.tgNBEPTV9qZ.VRJTDFRFdYeVQvBJi1Eqwg9uA2hgC7S
   #    # date --utc +%FT%T%Z
@@ -31,5 +31,3 @@ resources:
   - namespace.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.4/manifests/install.yaml
   - ingressroute.yaml
-  - argocd-tls-sealed.yaml
-  - argocd-secret-sealed.yaml
