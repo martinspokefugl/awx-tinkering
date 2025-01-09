@@ -11,11 +11,11 @@ secretGenerator:
     literals:
       - operator=awx
 
-  - name: awx-secret-tls
-    type: kubernetes.io/tls
-    files:
-      - tls.crt
-      - tls.key
+        #  - name: awx-secret-tls
+        #    type: kubernetes.io/tls
+        #    files:
+        #      - tls.crt
+        #      - tls.key
 
         #  - name: awx-postgres-configuration
         #    type: Opaque
