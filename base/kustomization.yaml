@@ -45,6 +45,9 @@ resources:
   - pv.yaml
   - pvc.yaml
   - awx.yaml
+  - awx-secret-tls-sealed.yaml
+  - awx-admin-password-sealed.yaml
+  - awx-postgres-configuration-sealed.yaml
 
 images:
     - name: quay.io/ansible/awx-operator
